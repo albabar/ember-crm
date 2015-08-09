@@ -1,0 +1,32 @@
+{{outlet}}
+{{#unless isEditing}}
+    <article id="lead">
+        <h1>
+            {{model.fullName}}
+            {{link-to 'edit' 'lead.edit' model classNames='edit'}}
+        </h1>
+
+        <p>Name: {{model.fullName}}</p>
+        <p>Email: {{model.email}}</p>
+        <p>Phone: {{model.phone}}</p>
+        <p>
+            <label>Status:
+                {{view Em.Select content=App.Lead.STATUSES value=model.status}}
+            </label>
+        </p>
+        <p>
+            <label>Notes: </label><br>
+            {{view Em.TextArea value=model.notes}}
+        </p>
+        <p>
+            <input type='submit' value='Save Changes' {{action 'saveChanges'}}>
+            <a href="#" class="delete" {{action 'delete'}}>Delete</a>
+            {{#if showUnsavedMessage}}
+                <div class="unsaved">Unsaved Changes</div>
+            {{/if}}
+            {{#if showSavingMessage}}
+                <div class="saving">Saving</div>
+            {{/if}}
+        </p>
+    </article>
+{{/unless}}

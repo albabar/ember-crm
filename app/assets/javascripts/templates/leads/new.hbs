@@ -1,0 +1,32 @@
+<article id="lead">
+    <h1>New Lead</h1>
+
+    {{#if showError}}
+        <div class="error">Leads must have first name and last name and atleast one contact info.</div>
+    {{/if}}
+    <form action="">
+        <fieldset>
+            <dl>
+                <dt><label>First Name</label></dt>
+                <dd>{{view Em.TextField value=fields.firstName}}</dd>
+            </dl>
+            <dl>
+                <dt><label>Last Name</label></dt>
+                <dd>{{view Em.TextField value=fields.lastName}}</dd>
+            </dl>
+            <dl>
+                <dt><label>Email</label></dt>
+                <dd>{{view Em.TextField value=fields.email}}</dd>
+            </dl>
+            <dl>
+                <dt><label>Phone</label></dt>
+                <dd>{{view Em.TextField value=fields.phone}}</dd>
+            </dl>
+        </fieldset>
+
+        <fieldset class="actions">
+            <input type="submit" value="Create Lead" {{action 'createLead'}}>
+            <a href="#" class="cancel" {{action 'cancel'}}>Cancel</a>
+        </fieldset>
+    </form>
+</article>

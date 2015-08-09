@@ -1,0 +1,15 @@
+<article id="leads">
+    <h1>
+        Leads
+        {{#link-to 'leads.new'}}New Lead{{/link-to}}
+    </h1>
+    {{view Em.TextField value=search placeholder="Search Leads" classNames="search"}}
+    <ul>
+        {{#each lead in leads}}
+            {{#link-to 'lead' lead tagName='li'}}
+                {{lead.fullName}}
+            {{/link-to}}
+        {{/each}}
+    </ul>
+</article>
+{{outlet}}
